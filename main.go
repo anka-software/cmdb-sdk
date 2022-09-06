@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
 
 	"github.com/go-openapi/strfmt"
+	"github.com/joho/godotenv"
 	"github.com/vmware/vra-sdk-go/pkg/client"
 	"github.com/vmware/vra-sdk-go/pkg/client/cmdb"
 	"github.com/vmware/vra-sdk-go/pkg/models"
@@ -14,10 +17,14 @@ import (
 var apiHost = "dev125776.service-now.com"
 
 func main() {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatalf("Some error occured. Err: %s", err)
+	}
 
 	transport := httptransport.New(apiHost, "/api/now", nil)
 	transport.SetDebug(true)
-	transport.DefaultAuthentication = httptransport.BasicAuth("admin", "F!hoPlCr7/B6")
+	transport.DefaultAuthentication = httptransport.BasicAuth(os.Getenv("SN_USERNAME"), os.Getenv("SN_PASSWORD"))
 	apiclient := client.New(transport, strfmt.Default)
 	fmt.Println("apiclient:\n", apiclient)
 	result, err := apiclient.Cmdb.CreateIdentifyReconcile(cmdb.NewCreateIdentifyReconcileParams().
