@@ -5,6 +5,8 @@ type GetTableItem struct {
 }
 
 type GetTable struct {
-	SysClassName string `json:"sys_class_name,omitempty"`
-	Name         string `json:"name,omitempty"`
+	SysClassName string `json:"sys_class_name"`
+	// Probably Unique Identifier.
+	SysId string `json:"sys_id"`
+	Name  string `json:"name,omitempty"`
 }
