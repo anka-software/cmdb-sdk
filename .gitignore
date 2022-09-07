@@ -10,3 +10,5 @@ sdk-test
 tokens
 examples/cloud_account/cloud_account
 .env
+
+.idea
