@@ -27,7 +27,9 @@ func main() {
 	transport.DefaultAuthentication = httptransport.BasicAuth(os.Getenv("SN_USERNAME"), os.Getenv("SN_PASSWORD"))
 	apiclient := client.New(transport, strfmt.Default)
 	fmt.Println("apiclient:\n", apiclient)
-	result, err := apiclient.Cmdb.CreateIdentifyReconcile(cmdb.NewCreateIdentifyReconcileParams().
+	sysparam := "ServiceNow"
+
+	result, err := apiclient.Cmdb.CreateIdentifyReconcile(cmdb.NewCreateIdentifyReconcileParams().WithSysParamDataSource(&sysparam).
 		WithBody(&models.IdentifyReconcileItemList{
 			Items: []*models.IdentifyReconcileItem{{ClassName: "cmdb_ci_win_server", Values: &models.ItemValue{
 				Name: "Win Server 100",
@@ -37,5 +39,6 @@ func main() {
 		}))
 	fmt.Println("RES:\n", result)
 	fmt.Println("ERR:\n", err)
+	//?sysparm_data_source=ServiceNow
 
 }

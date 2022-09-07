@@ -2,10 +2,10 @@ package models
 
 type IdentifyReconcileItem struct {
 	ClassName           string               `json:"className"`
-	Internal_Id         string               `json:"internal_id"`
-	Lookup              []*Lookup            `json:"lookup"`
-	Related             []string             `json:"related"`
-	Settings            *Settings            `json:"settings"`
+	InternalId          string               `json:"internal_id,omitempty"`
+	Lookup              []*Lookup            `json:"lookup,omitempty"`
+	Related             []string             `json:"related,omitempty"`
+	Settings            *Settings            `json:"settings,omitempty"`
 	SysObjectSourceInfo *SysObjectSourceInfo `json:"sys_object_source_info"`
 	Values              *ItemValue           `json:"values"`
 }
@@ -16,7 +16,7 @@ type IdentifyReconcileItemList struct {
 
 type Lookup struct {
 	ClassName           string               `json:"className"`
-	Internal_Id         string               `json:"internal_id,omitempty"`
+	InternalId          string               `json:"internal_id,omitempty"`
 	SysObjectSourceInfo *SysObjectSourceInfo `json:"sys_object_source_info,omitempty"`
 	Values              string               `json:"values"`
 }

@@ -48,7 +48,7 @@ func (a *Client) CreateIdentifyReconcile(params *CreateIdentifyReconcileParams, 
 	op := &runtime.ClientOperation{
 		ID:                 "createIdentify",
 		Method:             "POST",
-		PathPattern:        "/identifyreconcile?sysparm_data_source=ServiceNow",
+		PathPattern:        "/identifyreconcile",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},

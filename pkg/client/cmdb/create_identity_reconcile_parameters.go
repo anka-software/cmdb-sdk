@@ -71,9 +71,10 @@ type CreateIdentifyReconcileParams struct {
 	*/
 	Body *models.IdentifyReconcileItemList
 
-	timeout    time.Duration
-	Context    context.Context
-	HTTPClient *http.Client
+	SysparmDataSource *string
+	timeout           time.Duration
+	Context           context.Context
+	HTTPClient        *http.Client
 }
 
 // WithDefaults hydrates default values in the create project params (not the query body).
@@ -135,16 +136,35 @@ func (o *CreateIdentifyReconcileParams) SetAPIVersion(aPIVersion *string) {
 	o.APIVersion = aPIVersion
 }
 
+func (o *CreateIdentifyReconcileParams) WithSysParamDataSource(dataSource *string) *CreateIdentifyReconcileParams {
+	o.SetSysParamDataSource(dataSource)
+	return o
+}
+
+// SetAPIVersion adds the apiVersion to the create project params
+func (o *CreateIdentifyReconcileParams) SetSysParamDataSource(dataSource *string) {
+	o.SysparmDataSource = dataSource
+}
+
 // WithBody adds the body to the create project params
 func (o *CreateIdentifyReconcileParams) WithBody(body *models.IdentifyReconcileItemList) *CreateIdentifyReconcileParams {
 	o.SetBody(body)
 	return o
 }
 
-// SetBody adds the body to the create project params
 func (o *CreateIdentifyReconcileParams) SetBody(body *models.IdentifyReconcileItemList) {
 	o.Body = body
 }
+
+/*func (o *CreateIdentifyReconcileParams) WithQuery(query string) *CreateIdentifyReconcileParams {
+	o.SetQuery(query)
+	return o
+}*/
+
+// SetBody adds the body to the create project params
+/*func (o *CreateIdentifyReconcileParams) SetQuery(query string) {
+	o.Query = query
+}*/
 
 // WriteToRequest writes these params to a swagger request
 func (o *CreateIdentifyReconcileParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
@@ -169,6 +189,13 @@ func (o *CreateIdentifyReconcileParams) WriteToRequest(r runtime.ClientRequest, 
 				return err
 			}
 		}
+	}
+	if o.SysparmDataSource != nil {
+
+		if err := r.SetQueryParam("sysparm_data_source", *o.SysparmDataSource); err != nil {
+			return err
+		}
+
 	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
