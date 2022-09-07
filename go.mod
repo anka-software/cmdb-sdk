@@ -9,4 +9,5 @@ require (
 	github.com/go-openapi/swag v0.22.3
 	github.com/go-openapi/validate v0.22.0
 	github.com/joho/godotenv v1.4.0
+	go.mongodb.org/mongo-driver v1.10.2 // indirect
 )

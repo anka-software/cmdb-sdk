@@ -99,6 +99,7 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 }
 
 // MulticloudIaaS is a client for vmware cloud assembly iaas  API
+// TODO: Client isimleri ayarlanacak orneginz cmdb: idenrecon
 type MainClient struct {
 	Cmdb      cmdb.ClientService
 	Transport runtime.ClientTransport

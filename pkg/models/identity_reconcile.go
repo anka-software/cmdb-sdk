@@ -6,7 +6,7 @@ type IdentifyReconcileItem struct {
 	Lookup              []*Lookup            `json:"lookup,omitempty"`
 	Related             []string             `json:"related,omitempty"`
 	Settings            *Settings            `json:"settings,omitempty"`
-	SysObjectSourceInfo *SysObjectSourceInfo `json:"sys_object_source_info"`
+	SysObjectSourceInfo *SysObjectSourceInfo `json:"sys_object_source_info,omitempty"`
 	Values              *ItemValue           `json:"values"`
 }
 
