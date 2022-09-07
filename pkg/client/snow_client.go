@@ -9,6 +9,7 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/anka-software/cmdb-sdk/pkg/client/cmdb"
+	"github.com/anka-software/cmdb-sdk/pkg/client/table"
 )
 
 // Default vmware cloud assembly iaas  API HTTP client.
@@ -55,7 +56,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *MainClient
 	cli.Transport = transport
 
 	cli.Cmdb = cmdb.New(transport, formats)
-
+	cli.Table = table.New(transport, formats)
 	return cli
 }
 
@@ -102,13 +103,14 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 // TODO: Client isimleri ayarlanacak orneginz cmdb: idenrecon
 type MainClient struct {
 	Cmdb      cmdb.ClientService
+	Table     table.ClientService
 	Transport runtime.ClientTransport
 }
 
 // SetTransport changes the transport on the client and all its subresources
 func (c *MainClient) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
-
+	c.Table.SetTransport(transport)
 	c.Cmdb.SetTransport(transport)
 
 }
