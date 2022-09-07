@@ -16,8 +16,8 @@ type IdentifyReconcileItemList struct {
 
 type Lookup struct {
 	ClassName           string               `json:"className"`
-	Internal_Id         string               `json:"internal_id"`
-	SysObjectSourceInfo *SysObjectSourceInfo `json:"sys_object_source_info"`
+	Internal_Id         string               `json:"internal_id,omitempty"`
+	SysObjectSourceInfo *SysObjectSourceInfo `json:"sys_object_source_info,omitempty"`
 	Values              string               `json:"values"`
 }
 
@@ -28,18 +28,18 @@ type SysObjectSourceInfo struct {
 	SourceRecencyTimestamp string `json:"source_recency_timestamp"`
 }
 type ItemValue struct {
-	HostName     string `json:"host_name"`
-	IpAddress    string `json:"ip_address"`
+	HostName     string `json:"host_name,omitempty"`
+	IpAddress    string `json:"ip_address,omitempty"`
 	Name         string `json:"name"`
-	OsName       string `json:"os_name"`
-	SysClassName string `json:"sys_class_name"`
+	OsName       string `json:"os_name,omitempty"`
+	SysClassName string `json:"sys_class_name,omitempty"`
 }
 
 type Settings struct {
-	SkipReclassificationRestrictionRules bool `json:"skipReclassificationRestrictionRules"`
-	UpdateWithoutDowngrade               bool `json:"updateWithoutDowngrade"`
-	UpdateWithoutSwitch                  bool `json:"updateWithoutSwitch"`
-	UpdateWithoutUpgrade                 bool `json:"updateWithoutUpgrade"`
+	SkipReclassificationRestrictionRules bool `json:"skipReclassificationRestrictionRules,omitempty"`
+	UpdateWithoutDowngrade               bool `json:"updateWithoutDowngrade,omitempty"`
+	UpdateWithoutSwitch                  bool `json:"updateWithoutSwitch,omitempty"`
+	UpdateWithoutUpgrade                 bool `json:"updateWithoutUpgrade,omitempty"`
 }
 
 /*

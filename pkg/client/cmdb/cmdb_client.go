@@ -41,15 +41,14 @@ type ClientService interface {
 func (a *Client) CreateIdentifyReconcile(params *CreateIdentifyReconcileParams, opts ...ClientOption) (*CreateIdentifyReconcileCreated, error) {
 	// TODO: Validate the params before sending
 
-	fmt.Println("Running1")
 	if params == nil {
 		params = NewCreateIdentifyReconcileParams()
 	}
-	fmt.Println("Running2")
+
 	op := &runtime.ClientOperation{
 		ID:                 "createIdentify",
 		Method:             "POST",
-		PathPattern:        "/identifyreconcile",
+		PathPattern:        "/identifyreconcile?sysparm_data_source=ServiceNow",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -58,7 +57,7 @@ func (a *Client) CreateIdentifyReconcile(params *CreateIdentifyReconcileParams, 
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
-	fmt.Println("Running3")
+
 	for _, opt := range opts {
 		opt(op)
 	}

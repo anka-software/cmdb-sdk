@@ -29,9 +29,10 @@ func main() {
 	fmt.Println("apiclient:\n", apiclient)
 	result, err := apiclient.Cmdb.CreateIdentifyReconcile(cmdb.NewCreateIdentifyReconcileParams().
 		WithBody(&models.IdentifyReconcileItemList{
-			Items: []*models.IdentifyReconcileItem{{ClassName: "cmdb_ci_windows_service", Values: &models.ItemValue{
-				Name:      "Win Server 100",
-				IpAddress: "10.20.30.40",
+			Items: []*models.IdentifyReconcileItem{{ClassName: "cmdb_ci_win_server", Values: &models.ItemValue{
+				Name: "Win Server 100",
+				/*IpAddress:    "10.20.30.40",
+				SysClassName: "cmdb_ci_win_server",*/
 			}}},
 		}))
 	fmt.Println("RES:\n", result)
