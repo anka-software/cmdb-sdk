@@ -1,4 +1,4 @@
-module github.com/vmware/vra-sdk-go
+module github.com/anka-software/cmdb-sdk
 
 require (
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect

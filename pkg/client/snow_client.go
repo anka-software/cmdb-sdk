@@ -8,7 +8,7 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/vmware/vra-sdk-go/pkg/client/cmdb"
+	"github.com/anka-software/cmdb-sdk/pkg/client/cmdb"
 )
 
 // Default vmware cloud assembly iaas  API HTTP client.

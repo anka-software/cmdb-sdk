@@ -5,11 +5,11 @@ import (
 	"log"
 	"os"
 
+	"github.com/anka-software/cmdb-sdk/pkg/client"
+	"github.com/anka-software/cmdb-sdk/pkg/client/cmdb"
+	"github.com/anka-software/cmdb-sdk/pkg/models"
 	"github.com/go-openapi/strfmt"
 	"github.com/joho/godotenv"
-	"github.com/vmware/vra-sdk-go/pkg/client"
-	"github.com/vmware/vra-sdk-go/pkg/client/cmdb"
-	"github.com/vmware/vra-sdk-go/pkg/models"
 
 	httptransport "github.com/go-openapi/runtime/client"
 )

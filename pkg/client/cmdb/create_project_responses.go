@@ -10,7 +10,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/vmware/vra-sdk-go/pkg/models"
+	"github.com/anka-software/cmdb-sdk/pkg/models"
 )
 
 // CreateIdentifyReconcileReader is a Reader for the CreateIdentifyReconcile structure.
