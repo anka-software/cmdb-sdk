@@ -160,7 +160,7 @@ func (o *GetTableItemsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 	}
 	var res []error
 
-	//r.SetQueryParam("sysparm_limit", "1000")
+	r.SetQueryParam("sysparm_limit", "1000")
 
 	if o.APIVersion != nil {
 
