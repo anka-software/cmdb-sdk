@@ -8,6 +8,17 @@ type IdentifyReconcileItem struct {
 	Settings            *Settings            `json:"settings,omitempty"`
 	SysObjectSourceInfo *SysObjectSourceInfo `json:"sys_object_source_info,omitempty"`
 	Values              *ItemValue           `json:"values"`
+	Result              *Result              `json:"result"`
+}
+
+// For response
+type Items struct {
+	ClassName string `json:"className"`
+	Operation string `json:"operation,omitempty"`
+	SysId     string `json:"sysId,omitempty"`
+}
+type Result struct {
+	Items *[]Items `json:"items"`
 }
 
 type IdentifyReconcileItemList struct {
