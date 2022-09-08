@@ -44,6 +44,7 @@ type ItemValue struct {
 	Name         string `json:"name"`
 	OsName       string `json:"os_name,omitempty"`
 	SysClassName string `json:"sys_class_name,omitempty"`
+	Ram          string `json:"ram,omitempty"`
 }
 
 type Settings struct {

@@ -9,4 +9,5 @@ type GetTable struct {
 	// Probably Unique Identifier.
 	SysId string `json:"sys_id"`
 	Name  string `json:"name,omitempty"`
+	Ram   string `json:"ram,omitempty"`
 }
