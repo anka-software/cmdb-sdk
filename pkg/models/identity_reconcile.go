@@ -7,7 +7,7 @@ type IdentifyReconcileItem struct {
 	Related             []string             `json:"related,omitempty"`
 	Settings            *Settings            `json:"settings,omitempty"`
 	SysObjectSourceInfo *SysObjectSourceInfo `json:"sys_object_source_info,omitempty"`
-	Values              *ItemValue           `json:"values"`
+	Values              map[string]string    `json:"values"`
 	Result              *Result              `json:"result"`
 }
 
@@ -47,9 +47,9 @@ type SysObjectSourceInfo struct {
 	SysClassName string `json:"sys_class_name,omitempty"`
 	Ram          string `json:"ram,omitempty"`
 }*/
-type ItemValue struct {
-	Values []map[string]interface{}
-}
+/*type ItemValue struct {
+	Values map[string]interface{}
+}*/
 
 type Settings struct {
 	SkipReclassificationRestrictionRules bool `json:"skipReclassificationRestrictionRules,omitempty"`

@@ -76,7 +76,6 @@ func (o *CreateIdentifyReconcileCreated) GetPayload() *models.IdentifyReconcileI
 func (o *CreateIdentifyReconcileCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.IdentifyReconcileItem)
-	fmt.Println("hey5")
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err

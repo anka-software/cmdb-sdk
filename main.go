@@ -79,7 +79,7 @@ func RetrieveMandatoryFields(apiclient *client.MainClient, tableName string) []s
 	var mandatoryFields []string
 	// Fields of the specific class Name
 	for _, v := range result.Payload.Result.Attributes {
-		if v.IsMandatory == "false" && v.IsDisplay == "true" {
+		if v.IsMandatory == "true" {
 			mandatoryFields = append(mandatoryFields, v.Element)
 		}
 		//fmt.Println(v.Element)
