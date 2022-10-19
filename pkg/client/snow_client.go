@@ -6,6 +6,7 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/anka-software/cmdb-sdk/pkg/client/cmdb"
+	"github.com/anka-software/cmdb-sdk/pkg/client/cmdb_meta"
 	"github.com/anka-software/cmdb-sdk/pkg/client/table"
 )
 
@@ -54,6 +55,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *MainClient
 
 	cli.Cmdb = cmdb.New(transport, formats)
 	cli.Table = table.New(transport, formats)
+	cli.CmdbMeta = cmdb_meta.New(transport, formats)
 	return cli
 }
 
@@ -100,6 +102,7 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 // TODO: Client isimleri ayarlanacak orneginz cmdb: idenrecon
 type MainClient struct {
 	Cmdb      cmdb.ClientService
+	CmdbMeta  cmdb_meta.ClientService
 	Table     table.ClientService
 	Transport runtime.ClientTransport
 }
@@ -109,5 +112,6 @@ func (c *MainClient) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.Table.SetTransport(transport)
 	c.Cmdb.SetTransport(transport)
+	c.CmdbMeta.SetTransport(transport)
 
 }

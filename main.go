@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/anka-software/cmdb-sdk/pkg/client"
-	"github.com/anka-software/cmdb-sdk/pkg/client/table"
+	"github.com/anka-software/cmdb-sdk/pkg/client/cmdb_meta"
 	"github.com/joho/godotenv"
 
 	httptransport "github.com/go-openapi/runtime/client"
@@ -52,9 +52,37 @@ func main() {
 
 	apiclient := client.New(transport, strfmt.Default)
 	tableName := "cmdb_ci_win_server"
-	SysId := "bb53f3f947f511504b6fcc88f36d4374"
+	//SysId := "bb53f3f947f511504b6fcc88f36d4374"
+	/*result, err := apiclient.CmdbMeta.GetCmdbMetaByClassName(cmdb_meta.NewGetTableItemParams().WithClassName(tableName))
+	if err != nil {
+		fmt.Println("ERR:\n", err)
+	}
 
-	result1, err1 := apiclient.Table.DeleteRecord(table.NewDeleteRecordParams().WithTableName(tableName).WithSysID(SysId))
-	fmt.Println("RES:\n", result1.Payload)
-	fmt.Println("ERR:\n", err1)
+	// Fields of the specific class Name
+	for _, v := range result.Payload.Result.Attributes {
+		fmt.Println(v.Element)
+	}*/
+	mandatoryFields := RetrieveMandatoryFields(apiclient, tableName)
+	fmt.Println("MandatoryFields:", mandatoryFields)
+	//result1, err1 := apiclient.Table.DeleteRecord(table.NewDeleteRecordParams().WithTableName(tableName).WithSysID(SysId))
+	//fmt.Println("RES:\n", result1.Payload)
+	//fmt.Println("ERR:\n", err1)
+}
+
+func RetrieveMandatoryFields(apiclient *client.MainClient, tableName string) []string {
+
+	result, err := apiclient.CmdbMeta.GetCmdbMetaByClassName(cmdb_meta.NewGetTableItemParams().WithClassName(tableName))
+	if err != nil {
+		fmt.Println("ERR:\n", err)
+	}
+	//fmt.Println("RES:\n", result.Payload.Result.Attributes)
+	var mandatoryFields []string
+	// Fields of the specific class Name
+	for _, v := range result.Payload.Result.Attributes {
+		if v.IsMandatory == "false" && v.IsDisplay == "true" {
+			mandatoryFields = append(mandatoryFields, v.Element)
+		}
+		//fmt.Println(v.Element)
+	}
+	return mandatoryFields
 }

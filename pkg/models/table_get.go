@@ -1,9 +1,24 @@
 package models
 
-type GetTableItem struct {
-	Result []TableIface
+type GetCMDClassSchema struct {
+	Result struct {
+		Name       string `json:"name"`
+		Attributes []struct {
+			IsMandatory  string `json:"is_mandatory"`
+			DefaultValue string `json:"default_value"`
+			Label        string `json:"label"`
+			Type         string `json:"type"`
+			IsDisplay    string `json:"is_display"`
+			Element      string `json:"element"`
+		} `json:"attributes"`
+	} `json:"result"`
 }
-type LinkValue struct {
+
+type GetTableItem struct {
+	Result []map[string]interface{} `json:"result"`
+}
+
+/*type LinkValue struct {
 	Link  string `json:"link"`
 	Value string `json:"value"`
 }
@@ -54,7 +69,7 @@ type GetTableWin struct {
 	HostName  string    `json:"host_name"`
 	LeaseID   string    `json:"lease_id"`
 }
-
+*/
 type GetTableLin struct {
 	FirewallStatus    string `json:"firewall_status"`
 	OsAddressWidth    string `json:"os_address_width"`

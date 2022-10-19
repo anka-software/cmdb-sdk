@@ -38,13 +38,17 @@ type SysObjectSourceInfo struct {
 	SourceNativeKey        string `json:"source_native_key"`
 	SourceRecencyTimestamp string `json:"source_recency_timestamp"`
 }
-type ItemValue struct {
+
+/*type ItemValue struct {
 	HostName     string `json:"host_name,omitempty"`
 	IpAddress    string `json:"ip_address,omitempty"`
 	Name         string `json:"name"`
 	OsName       string `json:"os_name,omitempty"`
 	SysClassName string `json:"sys_class_name,omitempty"`
 	Ram          string `json:"ram,omitempty"`
+}*/
+type ItemValue struct {
+	Values []map[string]interface{}
 }
 
 type Settings struct {
