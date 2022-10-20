@@ -20,7 +20,7 @@ import (
 // Default values are not hydrated, since defaults are normally applied by the API server side.
 //
 // To enforce default values in parameter, use SetDefaults or WithDefaults.
-func NewGetTableItemParams() *GetCmdbMetaParams {
+func NewGetCmdbMetaParams() *GetCmdbMetaParams {
 	return &GetCmdbMetaParams{
 		timeout: cr.DefaultTimeout,
 	}
@@ -28,7 +28,7 @@ func NewGetTableItemParams() *GetCmdbMetaParams {
 
 // NewCreateProjectParamsWithTimeout creates a new CreateProjectParams object
 // with the ability to set a timeout on a request.
-func NewGetTableItemParamsWithTimeout(timeout time.Duration) *GetCmdbMetaParams {
+func NewGetCmdbMetaParamsWithTimeout(timeout time.Duration) *GetCmdbMetaParams {
 	return &GetCmdbMetaParams{
 		timeout: timeout,
 	}
@@ -36,7 +36,7 @@ func NewGetTableItemParamsWithTimeout(timeout time.Duration) *GetCmdbMetaParams 
 
 // NewCreateProjectParamsWithContext creates a new CreateProjectParams object
 // with the ability to set a context for a request.
-func NewGetTableItemParamsWithContext(ctx context.Context) *GetCmdbMetaParams {
+func NewGetCmdbMetaParamsWithContext(ctx context.Context) *GetCmdbMetaParams {
 	return &GetCmdbMetaParams{
 		Context: ctx,
 	}
@@ -44,7 +44,7 @@ func NewGetTableItemParamsWithContext(ctx context.Context) *GetCmdbMetaParams {
 
 // NewCreateProjectParamsWithHTTPClient creates a new CreateProjectParams object
 // with the ability to set a custom HTTPClient for a request.
-func NewGetTableItemParamsWithHTTPClient(client *http.Client) *GetCmdbMetaParams {
+func NewGetCmdbMetaParamsWithHTTPClient(client *http.Client) *GetCmdbMetaParams {
 	return &GetCmdbMetaParams{
 		HTTPClient: client,
 	}

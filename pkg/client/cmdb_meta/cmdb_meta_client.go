@@ -39,7 +39,7 @@ func (a *Client) GetCmdbMetaByClassName(params *GetCmdbMetaParams, opts ...Clien
 	// TODO: Validate the params before sending
 
 	if params == nil {
-		params = NewGetTableItemParams()
+		params = NewGetCmdbMetaParams()
 	}
 
 	op := &runtime.ClientOperation{

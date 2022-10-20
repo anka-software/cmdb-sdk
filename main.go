@@ -71,7 +71,7 @@ func main() {
 
 func RetrieveMandatoryFields(apiclient *client.MainClient, tableName string) []string {
 
-	result, err := apiclient.CmdbMeta.GetCmdbMetaByClassName(cmdb_meta.NewGetTableItemParams().WithClassName(tableName))
+	result, err := apiclient.CmdbMeta.GetCmdbMetaByClassName(cmdb_meta.NewGetCmdbMetaParams().WithClassName(tableName))
 	if err != nil {
 		fmt.Println("ERR:\n", err)
 	}
