@@ -26,7 +26,7 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetCmdbMetaByClassName(params *GetTableItemsParams, opts ...ClientOption) (*GetTableItemsOK, error)
+	GetCmdbMetaByClassName(params *GetCmdbMetaParams, opts ...ClientOption) (*GetCmdbMetaOK, error)
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -35,7 +35,7 @@ type ClientService interface {
 
   Create IdentifyReconcile
 */
-func (a *Client) GetCmdbMetaByClassName(params *GetTableItemsParams, opts ...ClientOption) (*GetTableItemsOK, error) {
+func (a *Client) GetCmdbMetaByClassName(params *GetCmdbMetaParams, opts ...ClientOption) (*GetCmdbMetaOK, error) {
 	// TODO: Validate the params before sending
 
 	if params == nil {
@@ -50,7 +50,7 @@ func (a *Client) GetCmdbMetaByClassName(params *GetTableItemsParams, opts ...Cli
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetTableItemsReader{formats: a.formats},
+		Reader:             &GetCmdbMetaReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -63,12 +63,12 @@ func (a *Client) GetCmdbMetaByClassName(params *GetTableItemsParams, opts ...Cli
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetTableItemsOK)
+	success, ok := result.(*GetCmdbMetaOK)
 	if ok {
 		return success, nil
 	}
 
-	msg := fmt.Sprintf("unexpected success response for createIdentifyReconcile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for cmbMetaAPI: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 
 }

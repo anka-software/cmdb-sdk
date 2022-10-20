@@ -11,33 +11,33 @@ import (
 )
 
 // CreateIdentifyReconcileReader is a Reader for the CreateIdentifyReconcile structure.
-type GetTableItemsReader struct {
+type GetCmdbMetaReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetTableItemsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetCmdbMetaReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewGetTableItemsOK()
+		result := NewGetCmdbMetaOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	case 401:
-		result := NewGetTableItemsUnauthorized()
+		result := NewGetCmdbMetaUnauthorized()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 403:
-		result := NewGetTableItemsForbidden()
+		result := NewGetCmdbMetaForbidden()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return nil, result
 	case 404:
-		result := NewGetTableItemsNotFound()
+		result := NewGetCmdbMetaNotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -48,23 +48,23 @@ func (o *GetTableItemsReader) ReadResponse(response runtime.ClientResponse, cons
 }
 
 // NewCreateIdentifyReconcileCreated creates a CreateIdentifyReconcileCreated with default headers values
-func NewGetTableItemsOK() *GetTableItemsOK {
-	return &GetTableItemsOK{}
+func NewGetCmdbMetaOK() *GetCmdbMetaOK {
+	return &GetCmdbMetaOK{}
 }
 
-type GetTableItemsOK struct {
+type GetCmdbMetaOK struct {
 	Payload *models.GetCMDClassSchema
 }
 
-func (o *GetTableItemsOK) Error() string {
-	return fmt.Sprintf("[GET /TableItems/api/TableItemss/{TableItemsId}][%d] getTableItemsUnauthorized %+v", 200, o.Payload)
+func (o *GetCmdbMetaOK) Error() string {
+	return fmt.Sprintf("[GET /CmdbMeta/api/CmdbMetas/{className}][%d] getCmdbMetaUnauthorized %+v", 200, o.Payload)
 
 }
-func (o *GetTableItemsOK) GetPayload() *models.GetCMDClassSchema {
+func (o *GetCmdbMetaOK) GetPayload() *models.GetCMDClassSchema {
 	return o.Payload
 }
 
-func (o *GetTableItemsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetCmdbMetaOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.GetCMDClassSchema)
 
@@ -75,65 +75,65 @@ func (o *GetTableItemsOK) readResponse(response runtime.ClientResponse, consumer
 
 	return nil
 }
-func NewGetTableItemsUnauthorized() *GetTableItemsUnauthorized {
-	return &GetTableItemsUnauthorized{}
+func NewGetCmdbMetaUnauthorized() *GetCmdbMetaUnauthorized {
+	return &GetCmdbMetaUnauthorized{}
 }
 
-/* GetTableItemsUnauthorized describes a response with status code 401, with default header values.
+/* GetCmdbMetaUnauthorized describes a response with status code 401, with default header values.
 Unauthorized
 */
-type GetTableItemsUnauthorized struct {
+type GetCmdbMetaUnauthorized struct {
 }
 
-func (o *GetTableItemsUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /TableItems/api/TableItemss/{TableItemsId}][%d] getTableItemsUnauthorized ", 401)
+func (o *GetCmdbMetaUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /CmdbMeta/api/CmdbMetas/{className}][%d] getCmdbMetaUnauthorized ", 401)
 }
 
-func (o *GetTableItemsUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetCmdbMetaUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	return nil
 }
 
-// NewGetTableItemsForbidden creates a GetTableItemsForbidden with default headers values
-func NewGetTableItemsForbidden() *GetTableItemsForbidden {
-	return &GetTableItemsForbidden{}
+// NewGetCmdbMetaForbidden creates a GetCmdbMetaForbidden with default headers values
+func NewGetCmdbMetaForbidden() *GetCmdbMetaForbidden {
+	return &GetCmdbMetaForbidden{}
 }
 
-/* GetTableItemsForbidden describes a response with status code 403, with default header values.
+/* GetCmdbMetaForbidden describes a response with status code 403, with default header values.
 Forbidden
 */
-type GetTableItemsForbidden struct {
+type GetCmdbMetaForbidden struct {
 }
 
-func (o *GetTableItemsForbidden) Error() string {
-	return fmt.Sprintf("[GET /TableItems/api/TableItemss/{TableItemsId}][%d] getTableItemsForbidden ", 403)
+func (o *GetCmdbMetaForbidden) Error() string {
+	return fmt.Sprintf("[GET /CmdbMeta/api/{className}][%d] getCmdbMetaForbidden ", 403)
 }
 
-func (o *GetTableItemsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetCmdbMetaForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	return nil
 }
 
-// NewGetTableItemsNotFound creates a GetTableItemsNotFound with default headers values
-func NewGetTableItemsNotFound() *GetTableItemsNotFound {
-	return &GetTableItemsNotFound{}
+// NewGetCmdbMetaNotFound creates a GetCmdbMetaNotFound with default headers values
+func NewGetCmdbMetaNotFound() *GetCmdbMetaNotFound {
+	return &GetCmdbMetaNotFound{}
 }
 
-/* GetTableItemsNotFound describes a response with status code 404, with default header values.
+/* GetCmdbMetaNotFound describes a response with status code 404, with default header values.
 Not Found
 */
-type GetTableItemsNotFound struct {
+type GetCmdbMetaNotFound struct {
 	Payload *models.Error
 }
 
-func (o *GetTableItemsNotFound) Error() string {
-	return fmt.Sprintf("[GET /TableItems/api/TableItemss/{TableItemsId}][%d] getTableItemsNotFound  %+v", 404, o.Payload)
+func (o *GetCmdbMetaNotFound) Error() string {
+	return fmt.Sprintf("[GET /CmdbMeta/api/CmdbMetas/{className}][%d] getCmdbMetaNotFound  %+v", 404, o.Payload)
 }
-func (o *GetTableItemsNotFound) GetPayload() *models.Error {
+func (o *GetCmdbMetaNotFound) GetPayload() *models.Error {
 	return o.Payload
 }
 
-func (o *GetTableItemsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetCmdbMetaNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Error)
 

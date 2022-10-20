@@ -20,32 +20,32 @@ import (
 // Default values are not hydrated, since defaults are normally applied by the API server side.
 //
 // To enforce default values in parameter, use SetDefaults or WithDefaults.
-func NewGetTableItemParams() *GetTableItemsParams {
-	return &GetTableItemsParams{
+func NewGetTableItemParams() *GetCmdbMetaParams {
+	return &GetCmdbMetaParams{
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewCreateProjectParamsWithTimeout creates a new CreateProjectParams object
 // with the ability to set a timeout on a request.
-func NewGetTableItemParamsWithTimeout(timeout time.Duration) *GetTableItemsParams {
-	return &GetTableItemsParams{
+func NewGetTableItemParamsWithTimeout(timeout time.Duration) *GetCmdbMetaParams {
+	return &GetCmdbMetaParams{
 		timeout: timeout,
 	}
 }
 
 // NewCreateProjectParamsWithContext creates a new CreateProjectParams object
 // with the ability to set a context for a request.
-func NewGetTableItemParamsWithContext(ctx context.Context) *GetTableItemsParams {
-	return &GetTableItemsParams{
+func NewGetTableItemParamsWithContext(ctx context.Context) *GetCmdbMetaParams {
+	return &GetCmdbMetaParams{
 		Context: ctx,
 	}
 }
 
 // NewCreateProjectParamsWithHTTPClient creates a new CreateProjectParams object
 // with the ability to set a custom HTTPClient for a request.
-func NewGetTableItemParamsWithHTTPClient(client *http.Client) *GetTableItemsParams {
-	return &GetTableItemsParams{
+func NewGetTableItemParamsWithHTTPClient(client *http.Client) *GetCmdbMetaParams {
+	return &GetCmdbMetaParams{
 		HTTPClient: client,
 	}
 }
@@ -55,7 +55,7 @@ func NewGetTableItemParamsWithHTTPClient(client *http.Client) *GetTableItemsPara
 
    Typically these are written to a http.Request.
 */
-type GetTableItemsParams struct {
+type GetCmdbMetaParams struct {
 
 	/* APIVersion.
 
@@ -76,7 +76,7 @@ type GetTableItemsParams struct {
 // WithDefaults hydrates default values in the create project params (not the query body).
 //
 // All values with no default are reset to their zero value.
-func (o *GetTableItemsParams) WithDefaults() *GetTableItemsParams {
+func (o *GetCmdbMetaParams) WithDefaults() *GetCmdbMetaParams {
 	o.SetDefaults()
 	return o
 }
@@ -84,65 +84,65 @@ func (o *GetTableItemsParams) WithDefaults() *GetTableItemsParams {
 // SetDefaults hydrates default values in the create project params (not the query body).
 //
 // All values with no default are reset to their zero value.
-func (o *GetTableItemsParams) SetDefaults() {
+func (o *GetCmdbMetaParams) SetDefaults() {
 	// no default values defined for this parameter
 }
 
-func (o *GetTableItemsParams) WithClassName(className string) *GetTableItemsParams {
+func (o *GetCmdbMetaParams) WithClassName(className string) *GetCmdbMetaParams {
 	o.SetClassName(className)
 	return o
 }
 
-func (o *GetTableItemsParams) SetClassName(className string) {
+func (o *GetCmdbMetaParams) SetClassName(className string) {
 	o.ClassName = className
 }
 
 // WithTimeout adds the timeout to the create project params
-func (o *GetTableItemsParams) WithTimeout(timeout time.Duration) *GetTableItemsParams {
+func (o *GetCmdbMetaParams) WithTimeout(timeout time.Duration) *GetCmdbMetaParams {
 	o.SetTimeout(timeout)
 	return o
 }
 
 // SetTimeout adds the timeout to the create project params
-func (o *GetTableItemsParams) SetTimeout(timeout time.Duration) {
+func (o *GetCmdbMetaParams) SetTimeout(timeout time.Duration) {
 	o.timeout = timeout
 }
 
 // WithContext adds the context to the create project params
-func (o *GetTableItemsParams) WithContext(ctx context.Context) *GetTableItemsParams {
+func (o *GetCmdbMetaParams) WithContext(ctx context.Context) *GetCmdbMetaParams {
 	o.SetContext(ctx)
 	return o
 }
 
 // SetContext adds the context to the create project params
-func (o *GetTableItemsParams) SetContext(ctx context.Context) {
+func (o *GetCmdbMetaParams) SetContext(ctx context.Context) {
 	o.Context = ctx
 }
 
 // WithHTTPClient adds the HTTPClient to the create project params
-func (o *GetTableItemsParams) WithHTTPClient(client *http.Client) *GetTableItemsParams {
+func (o *GetCmdbMetaParams) WithHTTPClient(client *http.Client) *GetCmdbMetaParams {
 	o.SetHTTPClient(client)
 	return o
 }
 
 // SetHTTPClient adds the HTTPClient to the create project params
-func (o *GetTableItemsParams) SetHTTPClient(client *http.Client) {
+func (o *GetCmdbMetaParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
 // WithAPIVersion adds the aPIVersion to the create project params
-func (o *GetTableItemsParams) WithAPIVersion(aPIVersion *string) *GetTableItemsParams {
+func (o *GetCmdbMetaParams) WithAPIVersion(aPIVersion *string) *GetCmdbMetaParams {
 	o.SetAPIVersion(aPIVersion)
 	return o
 }
 
 // SetAPIVersion adds the apiVersion to the create project params
-func (o *GetTableItemsParams) SetAPIVersion(aPIVersion *string) {
+func (o *GetCmdbMetaParams) SetAPIVersion(aPIVersion *string) {
 	o.APIVersion = aPIVersion
 }
 
 // WriteToRequest writes these params to a swagger request
-func (o *GetTableItemsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
+func (o *GetCmdbMetaParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
 	if err := r.SetTimeout(o.timeout); err != nil {
 		return err
